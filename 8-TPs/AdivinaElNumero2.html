@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
+	<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsAdivinaElNumero2.js"></script>
@@ -15,24 +16,25 @@
 		
 
 		</head>
-	<body>
+	<body ng-app="angularIngreso" ng-controller="controlAdivina2">
 		<div class="CajaUno animated bounceInDown">
 			
 		
 			<form id="FormIngreso">
 
-				<input type="text"  placeholder="Ingrese número" id="numero">
+				<input type="text"  placeholder="Ingrese número" id="numero" ng-model="numero">
 				
 				<br>
-				<input type="text"  placeholder="intentos" readonly id="intentos">
+				<input type="text"  placeholder="intentos" readonly id="intentos" ng-model="contadorIntentos">
+				<input type="text"  placeholder="Alerta" readonly ng-model="alerta">
 			</form>
 			
 		</div>
 		<div class="CajaUno animated bounceInLeft">
 			
-		<button style="height:5em;" class="MiBotonUTN"  onclick="verificar()" >Verificar</button>
+		<button style="height:5em;" class="MiBotonUTN"  ng-click="verificar()" >Verificar</button>
 			
-			<button  class="MiBotonUTN" onclick="comenzar()" >Comenzar</button>
+			<button  class="MiBotonUTN" ng-click="comenzar()" >Comenzar</button>
 
 		</div>
 
@@ -57,7 +59,8 @@
 		</div>
 
 		<div class="CajaAbajo animated bounceInUp">
-			<a  class="MiBotonUTNLinea" onclick="location.href='index.html'" >Men&uacute; ejercicios</a>	
+			<a  class="MiBotonUTNLinea" onclick="location.href='index.html'" >Men&uacute; ejercicios</a>
+			<input type="text"  placeholder="numero secreto"  ng-model="numeroSecreto">	
 		</div>
 	</body>
 </html>

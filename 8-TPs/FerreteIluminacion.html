@@ -7,36 +7,55 @@
 		<!--Estilos-->
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
+
+		<style type="text/css">
+
+		.MiTextArea {
+		    width: 100%;
+		    height: 100px;
+		    padding: 12px 20px;
+		    box-sizing: border-box;
+		    border: 2px solid #ccc;
+		    border-radius: 4px;
+		    background-color: #f8f8f8;
+		  font-family:'Open Sans',sans-serif;
+		  font-size:95%;
+		    resize: none;
+		}
+
+		</style>
+
 		<!--final de Estilos-->
 
 		<!--Lógica-Programación-->
+<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 		<script type="text/javascript" src="jsFerreteIluminacion.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body>
+	<body ng-app="angularIngreso" ng-controller="controlIluminacion">
 		<div class="CajaUno animated bounceInDown">
 			
 		
 			<form id="FormIngreso">
 
-				<input type="text"  placeholder="Cantidad de lámparas" id="Cantidad">
-				<SELECT id="Marca">
+				<input type="text"  placeholder="Cantidad de lámparas" id="Cantidad" ng-model="cantCompradas">
+				<SELECT id="Marca" ng-model="marca">
 					<OPTION >ArgentinaLuz</OPTION>
 					<OPTION >FelipeLamparas</OPTION>
 					<OPTION >JeLuz</OPTION>
 					<OPTION >HazIluminacion</OPTION>
 					<OPTION >Osram</OPTION>
 				</SELECT>
-					<input type="text" readonly placeholder="Precio con descuento" id="precioDescuento">
+					<input type="text" readonly placeholder="Precio con descuento" id="precioDescuento" ng-model="precioDescuento">
 			</form>
 			
 		</div>
 		<div class="CajaUno animated bounceInLeft">
 			
 			
-			<button  class="MiBotonUTN" onclick="CalcularPrecio()" >Calcular precio</button>
+			<button  class="MiBotonUTN" ng-click="CalcularPrecio()" >Calcular precio</button>
 			
 
 		</div>
@@ -60,6 +79,7 @@
 
 		<div class="CajaAbajo animated bounceInUp">
 			<a style=" margin-top: 50%;"  class="MiBotonUTNLinea" onclick="location.href='index.html'" >Men&uacute; ejercicios</a>	
+			<textarea class="MiTextArea" readonly rows="4" cols="50">{{alerta}}</textarea>
 		</div>
 	</body>
 </html>

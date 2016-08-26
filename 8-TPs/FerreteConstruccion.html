@@ -7,23 +7,41 @@
 		<!--Estilos-->
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
-		<!--final de Estilos-->
 
+		<style type="text/css">
+
+		.MiTextArea {
+		    width: 100%;
+		    height: 100px;
+		    padding: 12px 20px;
+		    box-sizing: border-box;
+		    border: 2px solid #ccc;
+		    border-radius: 4px;
+		    background-color: #f8f8f8;
+		  font-family:'Open Sans',sans-serif;
+		  font-size:95%;
+		    resize: none;
+		}
+
+		</style>
+
+		<!--final de Estilos-->
+<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsFerreteConstruccion.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body>
+	<body ng-app="angularIngreso" ng-controller="controlConstruccion">
 		<div class="CajaUno animated bounceInDown">
 			
 		
 			<form id="FormIngreso">
 
-				<input type="text"  placeholder="Largo del terreno" id="Largo">
-				<input type="text"  placeholder="Ancho del terreno" id="Ancho">
-				<input type="text"  placeholder="Radio del terreno" id="Radio">
+				<input type="text"  placeholder="Largo del terreno" id="Largo" ng-model="largo">
+				<input type="text"  placeholder="Ancho del terreno" id="Ancho" ng-model="ancho">
+				<input type="text"  placeholder="Radio del terreno" id="Radio" ng-model="radio">
 				<br>
 				
 			</form>
@@ -32,9 +50,9 @@
 		<div class="CajaUno animated bounceInLeft">
 			
 			
-			<button  class="MiBotonUTN" onclick="Rectangulo()" >A- Rectangulo de alambre</button>
-			<button  class="MiBotonUTN" onclick="Circulo()" >B- Circulo de alambre</button>
-			<button  class="MiBotonUTN" onclick="Materiales()" >C- Materiales contrapiso</button>
+			<button  class="MiBotonUTN" ng-click="Rectangulo()" >A- Rectangulo de alambre</button>
+			<button  class="MiBotonUTN" ng-click="Circulo()" >B- Circulo de alambre</button>
+			<button  class="MiBotonUTN" ng-click="Materiales()" >C- Materiales contrapiso</button>
 
 		</div>
 
@@ -56,6 +74,7 @@
 
 		<div class="CajaAbajo animated bounceInUp">
 			<a  class="MiBotonUTNLinea" onclick="location.href='index.html'" >Men&uacute; ejercicios</a>	
+			<textarea class="MiTextArea" readonly rows="4" cols="50">{{resultadofinal}}</textarea>
 		</div>
 	</body>
 </html>
